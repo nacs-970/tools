@@ -8,6 +8,7 @@ city = input(str("Enter a city: "))
 g_url = "https://geocoding-api.open-meteo.com/v1/search?"
 g_url = g_url + "name=" + city
 g_resp = req.get(g_url).json()
+g_name = g_resp['results'][0]['name']
 g_lat = g_resp['results'][0]['latitude'] # need to have [0]  = list of dict
 g_long = g_resp['results'][0]['longitude']
 #print (f"lat : {g_lat}, long : {g_long}")
@@ -22,6 +23,7 @@ w_resp  = req.get(w_url).json()
 # List out put
 time = w_resp['current_weather']['time']
 time_z = w_resp['timezone_abbreviation']
+eleva = w_resp['elevation']
 temp = w_resp['current_weather']['temperature']
 wind_s = w_resp['current_weather']['windspeed']
 wind_d = w_resp['current_weather']['winddirection']
@@ -29,9 +31,11 @@ sun_r = w_resp['daily']['sunrise'][1]
 sun_s = w_resp['daily']['sunset'][1]
 
 print("----- Weather -----")
+print(f"City : {g_name}")
 print(f"Time : {time} {time_z} GMT")
-print(f"Latitude : {g_lat:.2f}") # :.2f to shorter a float
-print(f"Longtitude : {g_long:.2f}")
+print(f"Elevation : {eleva} m")
+print(f"Latitude : {g_lat:.2f}°") # :.2f to shorter a float
+print(f"Longtitude : {g_long:.2f}°")
 print(f"Temp : {temp} °C")
 print(f"Wind Speed : {wind_s} Km/h")
 print(f"Wind Direction : {wind_d}")
