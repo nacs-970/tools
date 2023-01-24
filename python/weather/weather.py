@@ -1,3 +1,5 @@
+# Note : lear about api & json
+# Scr : https://www.youtube.com/watch?v=9P5MY_2i7K8
 import datetime as dt
 import requests as req
 
