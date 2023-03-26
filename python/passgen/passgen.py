@@ -20,8 +20,14 @@ if p:
     var += punc
 
 if len(argv) >= 2:
-    password = "".join(random.sample(var,int(argv[1])))
+    length = int(argv[1])
+    amount = int(argv[2])
+    password = "".join(random.sample(var,length))
     print(password)
+    if len(argv) >= 3:
+        for x in range(amount):
+            password = "".join(random.sample(var,length))
+            print(password)
 
 else:
     length = int(input("Enter Length : "))
