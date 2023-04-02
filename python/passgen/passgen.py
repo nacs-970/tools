@@ -4,7 +4,7 @@ from sys import argv
 upper = "ABCDEFGHIJKLMNOPQRSTUVVWXYZ"
 lower = upper.lower()
 digits = "0123456789"
-punc = "~`!@#$%^&*()_+-=[]{}\\|;:,.<>?""'' "
+punc = "~`!@#$%^&*()_+-=[]{}\\|;:,.<>?\"\'"
 
 u,l,d,p = True, True, True, True
 
