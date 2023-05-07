@@ -5,7 +5,6 @@ from playsound import playsound
 # Function to play a sound file
 def play_sound(sound_file):
     playsound(sound_file)
-    playsound('silence.wav')
 
 # Function to create the soundboard
 def create_soundboard():
