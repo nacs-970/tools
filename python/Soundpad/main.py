@@ -9,7 +9,7 @@ def play_sound(sound_file):
 # Function to create the soundboard
 def create_soundboard():
     # Get the list of sound files in the sounds directory
-    sound_files = os.listdir('sounds')
+    sound_files = sorted(os.listdir('sounds'))
     
     # Create a new window
     root = tk.Tk()
