@@ -6,7 +6,7 @@ lower = upper.lower()
 digits = "0123456789"
 punc = "~`!@#$%^&*()_+-=[]{}\\|;:,.<>?\"\'"
 
-u,l,d,p = True, True, True, True
+u,l,d,p = True, True, True, False
 
 var = ""
 
