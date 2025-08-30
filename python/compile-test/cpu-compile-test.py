@@ -1,13 +1,14 @@
-import time, platform
+from time import perf_counter
+from platform import platform, machine, python_compiler
 
 def test_compile_speed(num_lines: int = 1000000):
     print("====== Hardware Info ======")
-    print("Platform :", platform.platform())
-    print("Architecture :", platform.machine())
-    print("Compiler :", platform.python_compiler())
+    print("Platform :", platform())
+    print("Architecture :", machine())
+    print("Compiler :", python_compiler())
     print("---------------------------")
     
-    print(f"Generating code with {num_lines} lines: ", end="")
+    print(f"Generating code with {num_lines} lines...")
     set_ = set(range(num_lines))
 
     # fast
@@ -19,10 +20,10 @@ def test_compile_speed(num_lines: int = 1000000):
     #code = generate_code(num_lines)
 
     print("done")
-    print("Compiling code: ", end="")
-    start_time = time.perf_counter()
+    print("Compiling code...")
+    start_time = perf_counter()
     compiled_code = compile(code, '<string>', 'exec')
-    end_time = time.perf_counter()
+    end_time = perf_counter()
     print("done")
 
     print(f"Compile time: {end_time - start_time:.4f} seconds")
