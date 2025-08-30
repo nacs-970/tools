@@ -9,7 +9,7 @@ def play_sound(sound_file):
 # Function to create the soundboard
 def create_soundboard():
     # Get the list of sound files in the sounds directory
-    sound_files = sorted(os.listdir('./sounds'))
+    sound_files = sorted(os.listdir('/home/nacs/Documents/git/tools/python/Soundpad/sounds'))
     
     # Create a new window
     root = tk.Tk()
@@ -22,6 +22,7 @@ def create_soundboard():
         col = i % 3
         
         # Create a button
+        #button = tk.Button(root, text=sound_file, command=lambda sound=sound_file: play_sound(f'sounds/{sound}'))
         button = tk.Button(root, text=sound_file, command=lambda sound=sound_file: play_sound(f'sounds/{sound}'))
         
         # Add the button to the grid
