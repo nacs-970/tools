@@ -1,21 +1,13 @@
-import time
-
-def generate_code(num_lines: int) -> str:
-
-    """Generate a large block of Python code as a string."""
-    set_ = set(range(num_lines))
-
-    # fast
-    code_lines = [f"x{i} = {i} * {i}" for i in set_]
-
-    # more complex
-    #code_lines = [f"x{i} = {i}**2 + 2*{i}*{i} - {i}**2" for i in set_]
-
-    return "\n".join(code_lines)
+import time, platform
 
 def test_compile_speed(num_lines: int = 1000000):
+    print("====== Hardware Info ======")
+    print("Platform :", platform.platform())
+    print("Architecture :", platform.machine())
+    print("Compiler :", platform.python_compiler())
+    print("---------------------------")
     
-    print(f"Generating code with {num_lines} lines...")
+    print(f"Generating code with {num_lines} lines: ", end="")
     set_ = set(range(num_lines))
 
     # fast
@@ -26,10 +18,12 @@ def test_compile_speed(num_lines: int = 1000000):
 
     #code = generate_code(num_lines)
 
-    print("Compiling code...")
+    print("done")
+    print("Compiling code: ", end="")
     start_time = time.perf_counter()
     compiled_code = compile(code, '<string>', 'exec')
     end_time = time.perf_counter()
+    print("done")
 
     print(f"Compile time: {end_time - start_time:.4f} seconds")
 
